@@ -16,7 +16,7 @@ in
     version="0.0.1";
     src = builtins.fetchGit {
         url = "ssh://git@github.com/antotocar34/lkr.git";
-        rev = "f1a82810ddeff3de0e653b934bbcbe6b4b062004";
+        rev = "e92a1bbbd201c31e08bb83e4fd0ebe94de1538fc";
     };
 
     buildInputs = [ bash ];

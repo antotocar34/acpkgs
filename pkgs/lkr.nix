@@ -1,3 +1,4 @@
+#
 { 
   lib, 
   stdenvNoCC, 
@@ -6,10 +7,12 @@
   bash, 
   fd, 
   rbw, 
-  jq
+  jq,
+  wget,
+  age
 }:
 let
-  bins = [ bash fd rbw jq ];
+  bins = [ bash fd rbw jq wget age ];
 in
   stdenvNoCC.mkDerivation {
     pname="lkr";

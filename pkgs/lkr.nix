@@ -17,11 +17,12 @@ in
   stdenvNoCC.mkDerivation {
     pname="lkr";
     version="0.0.1";
-    src = builtins.fetchGit {
-        url = "ssh://git@github.com/antotocar34/lkr.git";
-        rev = "e92a1bbbd201c31e08bb83e4fd0ebe94de1538fc";
-    };
-
+    src = fetchFromGitHub {
+          owner = "antotocar34";
+          repo = "lkr";
+          rev = "762302e365582e9e691ba892d42651415fc6f7d8";
+          sha256 = "sha256-6Hn19J50tHoAHmQAeR+81uNtfPYPLojqYSAHbIVo7yM=";
+        };
     buildInputs = [ bash ];
     nativeBuildInputs = [ makeWrapper ];
     installPhase = ''

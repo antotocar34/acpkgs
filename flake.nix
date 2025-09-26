@@ -2,7 +2,8 @@
   description = "Antoine's collection of packages";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    dotfiles.url = "github:antotocar34/dotfiles";
+    nixpkgs.follows = "dotfiles/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
   };
 

@@ -1,33 +1,36 @@
 {
-  description = "Antoine Carnec's collection of shells & packages";
+  description = "Antoine's collection of packages";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: let
-    # https://zimbatm.com/notes/1000-instances-of-nixpkgs
-    system = "x86_64-linux";
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        # https://zimbatm.com/notes/1000-instances-of-nixpkgs
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          # overlays = [ self.overlays.default ];
+        };
 
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [ ];
-    };
+        allPackages = (import ./acpkgs) {} pkgs;
+      in
+      {
+        devShells.default = import ./shells {
+          inherit pkgs;
+        };
 
-  in {
+        packages = allPackages;
 
-    devShells.${system} = import ./shells {
-      inherit pkgs;
-    };
+        defaultPackage = pkgs.symlinkJoin {
+          name = "all";
+          paths = builtins.attrValues allPackages;
+        };
 
-    packages.${system} = ((import ./pkgs) {} pkgs);
 
-    #apps.${system} = extraApps;
-
-    overlays.default = final: prev: (import ./pkgs) final prev;
-  };
+        overlays.default = final: prev: (import ./acpkgs) { pkgs = final; };
+      });
 }

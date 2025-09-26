@@ -19,9 +19,9 @@
         allPackages = (import ./acpkgs) {} pkgs;
       in
       {
-        devShells.default = import ./shells {
-          inherit pkgs;
-        };
+        # devShells.default = import ./shells {
+        #   inherit pkgs;
+        # };
 
         packages = allPackages;
 

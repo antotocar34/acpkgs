@@ -9,14 +9,14 @@
   openssl
 }:
 rustPlatform.buildRustPackage rec {
-  pname = "rbw-dev";
+  pname = "rbw";
   version = "1.14.1-dev";
 
   src = fetchFromGitHub {
     owner = "antotocar34";
     repo = "rbw";
-    rev = "62d8659d2d27e56168cccbafef65ad83218e3881";
-    sha256 = "sha256-3lD8BiXQYAYlnQ7hjWCEONN97KUy/Enc9SChuvhGgbI=";
+    rev = "8252366d25dae4d2216fae2763e97a76586cacc3";
+    sha256 = "sha256-cBgzYXNdlx+3BNHO55cKMvnjmMLg2uLI5W13faSeXsU=";
   };
 
   cargoHash = "sha256-CwFiWjYvDDr3rNCbv+3RI0eStiHusqzKAjAvRRnUzLU=";

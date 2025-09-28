@@ -40,4 +40,4 @@ jobs:
 
       - name: Build Nix Package
         # Dynamically build the package for the correct system
-        run: nix build
+        run: nix -L build -o result

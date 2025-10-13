@@ -10,8 +10,8 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "antotocar34";
     repo = "age-plugin-pwmgr";
-    rev = "cea6824f55ef2f2f09464d9a6c7170d0e320bb40";
-    sha256 = "sha256-AJYvj3hqfnVzgtMAn2CumWTCNFqcwzRMMM7ui5QFNts=";
+    rev = "b355dc1b70ce61317feece94a034f417091595e0";
+    sha256 = "sha256-v7VLWAwbEZAUVgvBtpPmvNw2OZHJRnQxSzz0bH0qzOg=";
   };
 
   cargoHash = "sha256-Tc6K4HaoPJ6j6Px6pjgvSxlamvhUgMokHZl8tUOOSEo=";

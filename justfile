@@ -1,14 +1,14 @@
-update_rust_package package branch:
+update_package package branch:
   #!/usr/bin/env bash
   latest_commit_sha="$(gh api repos/antotocar34/{{package}}/branches/{{branch}}  --jq .commit.sha)"
   sed -i .backup "s/^\( *rev = \"\)[^\"]*\(\";\)/\1$latest_commit_sha\2/" acpkgs/{{package}}.nix
   , nix-update {{package}} --version=skip --flake
 
 update_rbw:
-  just update_rust_package rbw pin
+  just update_package rbw pin
 
 update_age_plugin_pwmgr:
-  just update_rust_package age-plugin-pwmgr master
+  just update_package age-plugin-pwmgr master
 
 update_all:
   fd -e nix -x just update_{/.}

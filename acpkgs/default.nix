@@ -1,6 +1,10 @@
 self: super:
-with super; rec {
-  lkr = callPackage ./lkr.nix {};
-  rbw = callPackage ./rbw.nix {};
-  age-plugin-pwmgr = callPackage ./age-plugin-pwmgr.nix {};
-}
+let
+  src      = ./.;
+  files    = builtins.attrNames (builtins.readDir src);
+  nixFiles = builtins.filter (f: f != "default.nix" && builtins.match ".*\\.nix$" f != null) files;
+in
+builtins.listToAttrs (map (f: {
+  name  = builtins.replaceStrings [".nix"] [""] f;
+  value = super.callPackage (src + "/${f}") {};
+}) nixFiles)

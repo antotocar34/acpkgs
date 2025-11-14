@@ -6,7 +6,11 @@
   fetchFromGitHub,
   pkg-config,
   bash,
-  openssl
+  openssl,
+  age,
+  age-plugin-se,
+  age-plugin-tpm,
+  age-plugin-yubikey
 }:
 rustPlatform.buildRustPackage rec {
   pname = "rbw";
@@ -40,8 +44,18 @@ rustPlatform.buildRustPackage rec {
     export OPENSSL_LIB_DIR="${lib.getLib openssl}/lib"
   '';
 
-  postInstall = ''
+  postInstall = 
+  let
+    ageDeps = [ age age-plugin-se age-plugin-tpm age-plugin-yubikey ];
+  in
+  ''
     install -Dm755 -t $out/bin bin/git-credential-rbw
+
+    wrapProgram $out/bin/rbw \
+      --prefix PATH : ${lib.makeBinPath ageDeps}
+
+    wrapProgram $out/bin/rbw-agent \
+      --prefix PATH : ${lib.makeBinPath ageDeps}
   ''
   + lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     installShellCompletion --cmd rbw \

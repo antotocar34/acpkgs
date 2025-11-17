@@ -7,6 +7,7 @@
   pkg-config,
   bash,
   openssl,
+  makeWrapper,
   age,
   age-plugin-se,
   age-plugin-tpm,
@@ -27,7 +28,7 @@ rustPlatform.buildRustPackage rec {
   # cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs =
-    [ installShellFiles ]
+    [ installShellFiles makeWrapper ]
     ++ lib.optionals stdenv.hostPlatform.isLinux [ pkg-config ];
 
   buildInputs =

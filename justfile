@@ -5,7 +5,7 @@ update_package package branch:
   , nix-update {{package}} --version=skip --flake
 
 update_rbw:
-  just update_package rbw age_pin
+  just update_package rbw pin
 
 update_age_plugin_pwmgr:
   just update_package age-plugin-pwmgr master

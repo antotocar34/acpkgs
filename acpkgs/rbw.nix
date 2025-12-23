@@ -20,11 +20,11 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "antotocar34";
     repo = "rbw";
-    rev = "35dc65d31c3a6c5a67c88938c52d5457f07ab1ae";
-    sha256 = "sha256-pGi+CUkPC1aYrSFNnPQ87P5AqnFdKLwIhQWPgRlBPCI=";
+    rev = "bbd2cd748779edf1554e6486908f328a9059ee15";
+    sha256 = "sha256-ZqM930qb4i83W20oXSvQHkXA/p3I5bzrcGgiDtCj2UE=";
   };
 
-  cargoHash = "sha256-+G/JC514xgsz4f92UK+SIt3aEKMPX43nvNPYQOp7jkY=";
+  cargoHash = "sha256-IbEYEjq1CSdvxyx/wvBevYGjgN/yzmy3LKNOCcYFHz4=";
   # cargoLock.lockFile = ./Cargo.lock;
 
   nativeBuildInputs =

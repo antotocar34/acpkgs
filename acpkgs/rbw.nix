@@ -20,8 +20,8 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "antotocar34";
     repo = "rbw";
-    rev = "b60cb1b80ab47bfb285b26e4e7d0393bf0bd6b9e";
-    sha256 = "sha256-4GyFJUgMCQFN/I6GaL//EKNi8aQkrhtxwrw9S4wYY38=";
+    rev = "f994ba846853f0bf90df1fdbf99675592577dfcb";
+    sha256 = "sha256-cDP2vM2BaEZJp7iJNGbFx6uefscYzGRjvGJiyCGhJNE=";
   };
 
   cargoHash = "sha256-tQjUd3ArUV9dN74yGLbH9IkIqX/cgyfdG1LJjp63NFI=";

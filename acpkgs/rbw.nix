@@ -15,17 +15,16 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "rbw";
-  version = "1.14.1-dev";
+  version = "1.15.0";
 
   src = fetchFromGitHub {
     owner = "antotocar34";
     repo = "rbw";
-    rev = "bbd2cd748779edf1554e6486908f328a9059ee15";
-    sha256 = "sha256-ZqM930qb4i83W20oXSvQHkXA/p3I5bzrcGgiDtCj2UE=";
+    rev = "244d978a896d269deba14bd1b1cd8215f32e2eca";
+    sha256 = "sha256-+r+dR/8h4D7DlZjmh3iquUHZe0FhunGPjl2BEXw1mSQ=";
   };
 
-  cargoHash = "sha256-IbEYEjq1CSdvxyx/wvBevYGjgN/yzmy3LKNOCcYFHz4=";
-  # cargoLock.lockFile = ./Cargo.lock;
+  cargoHash = "sha256-tQjUd3ArUV9dN74yGLbH9IkIqX/cgyfdG1LJjp63NFI=";
 
   nativeBuildInputs =
     [ installShellFiles makeWrapper ]
